@@ -20,6 +20,13 @@ div {
   border-bottom: 1px solid grey;
 }
 
+.right_wrap {
+  display: flex;
+}
+
+.setting_position {
+  margin: 20px 10px;
+}
 
 .modal {
   background-color: #b3f3d4;
