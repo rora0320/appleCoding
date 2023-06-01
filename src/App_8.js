@@ -3,16 +3,13 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
-	const delicious = '강남 우동맛집';
-	// <h5>부분 원래는 이렇게 써야함.
-	// document.querySelector('h5').innerHTML=delicious;
 	const [like, setLike] = useState(0);
-
+	const [first, setFirst] = useState(['파자마', '남자 코트 추천', '우동맛집  추천']); // ['남자코트추천', '']]
+	const [when, setWhen] = useState('2월 17일 발행');
+	const [openModal, setOpenModal] = useState(false)
 	const moreLike = () => {
 		setLike(like + 1);
 	}
-	const [first, setFirst] = useState(['파자마', '남자 코트 추천', '우동맛집  추천']); // ['남자코트추천', '']]
-	const [when, setWhen] = useState('2월 17일 발행');
 
 	const changeTitle = () => {
 		setFirst('여자 코트 추천');
@@ -26,27 +23,32 @@ function App() {
 		// order.sort();
 		setFirst(order);
 	}
+
+	const modalOpen = () => {
+		setOpenModal(!openModal)
+	}
 	return (
 		<div className='App'>
 			<div className='black-nav'>
 				<h3>REACT BLOG</h3>
 			</div>
-
 			<div className='content'>
-				{/* // <h4 style={{color:'red'}}>남자 코트 추천</h4>
-				// <h4 style={{color:'red'}}>{delicious}</h4>
-				// <h5>2월 17일 발행</h5>  */}
-				<h4>{first[0]} <span onClick={moreLike}>😍</span>{like}</h4>
-				<input type='button' value={'클릭하면 변신'} onClick={() => {
-					//1. setFirst(['여자 코트 추천','우동맛집  추천','파이썬 독학'])
-					//2. first[0]='여자 코트 추천';
-					//추천 3. 
-					let copy = [...first];
-					copy[0] = '여자 코트 추천';
-					setFirst(copy);
+				<div className='right_wrap'>
+					<h4>{first[0]}</h4>
+					<div className='setting_position'>
+						<span onClick={moreLike}>😍</span>{like}
+						<input type='button' value={'클릭하면 변신'} onClick={() => {
+							//1. setFirst(['여자 코트 추천','우동맛집  추천','파이썬 독학'])
+							//2. first[0]='여자 코트 추천';
+							//추천 3. 
+							let copy = [...first];
+							copy[0] = '여자 코트 추천';
+							setFirst(copy);
 
-				}} />
-				<button onClick={() => orderByTitle()}>가나다정렬버튼</button>
+						}} />
+						<button onClick={() => orderByTitle()}>가나다정렬버튼</button>
+					</div>
+				</div>
 				<h5>{when}</h5>
 			</div>
 			<div className='content'>
@@ -54,7 +56,7 @@ function App() {
 				<h5>{when}</h5>
 			</div>
 			<div className='content'>
-				<h4>{first[2]}</h4>
+				<h4 onClick={() => { setOpenModal(true) }}>{first[2]}</h4>
 				<h5>{when}</h5>
 			</div>
 
@@ -64,7 +66,10 @@ function App() {
 				<p>날짜</p>
 				<div>상세내역</div>
 			</div> */}
-			<Modal></Modal>
+			{ //if(openModal){ }    <- if,for문은 사용할 수 없음: 삼항연산자만 가능
+				openModal ? <Modal /> : null
+			}
+			{/* {openModal && <Modal />} */}
 		</div>
 	)
 }
