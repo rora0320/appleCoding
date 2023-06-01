@@ -57,7 +57,9 @@ function App() {
 					</div>
 				)
 			})}
+			{/* {openModal && <Modal color={'yellow'} data={first} setData={setFirst} index={titleIndex} />} */}
 			{openModal && <Modal color={'yellow'} data={first} setData={setFirst} index={titleIndex} />}
+
 		</div >
 	)
 }
