@@ -11,6 +11,7 @@
 </head>
 
 <body>
+
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
             <span class="navbar-brand">Navbar</span>
@@ -26,15 +27,29 @@
         <li class="list-group-item">A fourth item</li>
         <li class="list-group-item">And a fifth one</li>
     </ul>
+    <p class="hello">안녕</p>
 
-    <button class="btn btn-primary" type="submit">Button</button>
+    <div class="black-bg">
+        <div class="white-bg">
+            <h4>로그인하세요</h4>
+            <button class="btn btn-danger" id="close">닫기</button>
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit" id='modalAdd'>로그인</button>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 </body>
 
 </html>
 
 <script>
-    document.getElementsByClassName('navbar-toggler')[0].addEventListener('click', function () {
-        document.getElementsByClassName('list-group')[0].classList.toggle('show');
+    $('.black-bg').hide();
+    $('#modalAdd').on('click', function () {
+        $('.black-bg').show();
+    })
+    $('#close').on('click', function () {
+        $('.black-bg').hide();
     })
 </script>
