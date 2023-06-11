@@ -1,0 +1,19 @@
+.alert-box {
+    background-color: steelblue;
+    padding: 20px;
+    color: white;
+    border: 1px solid;
+    border-radius: 5px;
+    /* 안보이게하기 */
+    /* display:none; */
+    /* 보이게하기  */
+    display: block;
+}
+
+.list-group {
+    display: none;
+}
+
+.show {
+    display: block;
+}
