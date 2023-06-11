@@ -25,6 +25,16 @@
     background: rgba(0, 0, 0, 0.5);
     z-index: 5;
     padding: 30px;
+    /* display: none; 애니매이션 할때는 visibilty 사용*/
+    visibility: hidden;
+    /* 투명도 */
+    opacity: 0;
+    transition: all 1s;
+}
+
+.show-modal {
+    visibility: visible;
+    opacity: 1;
 }
 
 .white-bg {
