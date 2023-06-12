@@ -47,3 +47,8 @@
     padding: 100px 20px;
     background: lightblue;
 }
+
+.dark {
+    background-color: #232323;
+    color: white;
+}
