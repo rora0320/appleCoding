@@ -20,6 +20,11 @@
             </button>
         </div>
     </nav>
+    <div class="lorem" style="width: 200px; height: 200px; padding-top:100px; overflow-y: scroll">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptas voluptatum minus praesentium fugit debitis at, laborum ipsa itaque placeat sit, excepturi eius. Nostrum perspiciatis, eligendi quae consectetur praesentium exercitationem.
+    </div>
+    <div style="height:1000px"></div>
+
     <ul class="list-group">
         <li class="list-group-item">An item</li>
         <li class="list-group-item">A second item</li>
@@ -52,4 +57,29 @@
     $('#close').on('click', function () {
         $('.black-bg').hide();
     })
+    const discount =(isFirst,price)=>{
+        var discountPrice = price - price*0.1;
+        console.log('price',discountPrice)
+        if(isFirst){
+            discountPrice =discountPrice- 1.5
+        }
+        return discountPrice;
+    }
+    console.log(discount(true,10))
+    window.addEventListener('scroll',function(){
+        if(window.scrollY>100) {
+            $('.navbar-brand').css('font-size', '20px');
+        }else{
+            $('.navbar-brand').css('font-size', '30px');
+        }
+    })
+    $('.lorem').on('scroll', function(){
+        var 스크롤양 = document.querySelector('.lorem').scrollTop;
+        var 실제높이 = document.querySelector('.lorem').scrollHeight;
+        var 보이는높이=document.querySelector('.lorem').clientHeight;
+        console.log(스크롤양, 실제높이);
+        if(스크롤양+보이는높이 > 실제높이-10){
+            alert('숙제로')
+        }
+    });
 </script>
