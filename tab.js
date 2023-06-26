@@ -1,10 +1,9 @@
-window.addEventListener('click',function(event){
-    console.log('event',event);
-})
-$('.tab-button').eq(0).on('click',function(){
-    $('.tab-button').removeClass('orange');
-    $('.tab-button').eq(0).addClass('orange');
-    $('.tab-content').removeClass('show');
-    $('.tab-content').eq(0).addClass('show');
-    console.log('tab?');
-})
+for(let i=0;i<$('.tab-button').length;i++) {
+    $('.tab-button').eq(i).on('click', function () {
+        $('.tab-button').removeClass('orange');
+        $('.tab-button').eq(i).addClass('orange');
+        $('.tab-content').removeClass('show');
+        $('.tab-content').eq(i).addClass('show');
+        console.log('tab?');
+    })
+}
