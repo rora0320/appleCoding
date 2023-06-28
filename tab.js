@@ -9,16 +9,17 @@
 //     })
 // }
 // 1.eventListener only use one
-const dataset = {
-    0:'products',
-    1:'information',
-    2:'shopping'
-}
+ //수업 내용
 $('.list').click(function(e){
-    const nodes = [...e.target.parentElement.children];
-    const targetIndex =nodes.indexOf(e.target);
-    tabOpen(targetIndex);
+    const index=e.target.dataset.item
+    console.log(e.target.dataset.item);
+    tabOpen(index)
 })
+// $('.list').click(function(e){
+//     const nodes = [...e.target.parentElement.children];
+//     const targetIndex =nodes.indexOf(e.target);
+//     tabOpen(targetIndex);
+// })
 function tabOpen(index){
     $('.tab-button').removeClass('orange');
     $('.tab-button').eq(index).addClass('orange');
