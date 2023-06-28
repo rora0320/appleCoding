@@ -1,6 +1,6 @@
-:root{
-    scroll-behavior: auto;
-}
+/*:root{*/
+/*    scroll-behavior: auto;*/
+/*}*/
 .alert-box {
     background-color: steelblue;
     padding: 20px;
@@ -71,9 +71,9 @@
 }
 
 .navbar {
-    position:fixed;
+    /*position:fixed;*/
     width:100%;
-    z-index:5;
+    /*z-index:5;*/
 }
 .navbar-brand {
     font-size : 30px;
