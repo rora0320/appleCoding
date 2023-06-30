@@ -40,3 +40,11 @@ const object = {
     }
 }
 object.data.functions();
+
+// 3. constructor
+function 기계 (){
+    this.name = 'kim';
+}
+
+var object = new 기계();
+//기계 함수에서 새로운 오브젝트 생성 : constructor (생성자)
