@@ -11,28 +11,50 @@
 </body>
 </html>
 <script>
-    // 1.array에서 콜백함수 속 this? -> window
-    document.getElementById('button').addEventListener('click',function(e){
-        var array =[1,2,3,4];
-        //forEach( callback function:함수안에 들어가는 함수를 콜백함수라고 함)
-        array.forEach(function(a){
-            console.log(this) // window
-        })
+//     // 1.array에서 콜백함수 속 this? -> window
+//     document.getElementById('button').addEventListener('click',function(e){
+//         var array =[1,2,3,4];
+//         //forEach( callback function:함수안에 들어가는 함수를 콜백함수라고 함)
+//         array.forEach(function(a){
+//             console.log(this) // window
+//         })
+//     })
+//     // 2. object에서 콜백함수ㅅㅏ용할때  this?
+//     var object ={
+//         names:['kim','lee','park'],
+//         functions:function(){
+//             console.log(this); // 오브젝트
+//             // object.names.forEach(function(name){
+//             //     console.log(this); //window 일반함수에서는 윈도우가 출력되는게 맞아
+//             //     console.log('name',name);
+//             // })
+//             object.names.forEach(()=>{
+//                 console.log(this);
+//                 // 오브젝트가 나옴!! 상위값 그대로 씀 내부에서 쓰던 this값 변화없음 외부에서 this값 그대로 재사용
+//             })
+//         }
+//     }
+// object.functions();
+
+    [1,2,3,4].forEach((a)=>{
+        console.log(a);
+    });
+
+    // 일반 리스너에서는 this==e.currentTarget / arrow function에서는 밖의this==this
+    // document.getElementById('button').addEventListener('click',function(e){
+    //         console.log(this) // button
+    // })
+    document.getElementById('button').addEventListener('click',(e)=>{
+        console.log(this) // window
     })
-    // 2. object에서 콜백함수ㅅㅏ용할때  this?
-    var object ={
-        names:['kim','lee','park'],
-        functions:function(){
-            console.log(this); // 오브젝트
-            // object.names.forEach(function(name){
-            //     console.log(this); //window 일반함수에서는 윈도우가 출력되는게 맞아
-            //     console.log('name',name);
-            // })
-            object.names.forEach(()=>{
-                console.log(this);
-                // 오브젝트가 나옴!! 상위값 그대로 씀 내부에서 쓰던 this값 변화없음 외부에서 this값 그대로 재사용
-            })
+
+var object ={
+        // 함수:function(){
+        //     console.log('object',this); //함수 오브젝트가 나옴
+        // }
+        함수:()=>{
+            console.log('object',this); //window
         }
     }
-object.functions()
+object.함수()
 </script>
