@@ -36,25 +36,60 @@
 //     }
 // object.functions();
 
-    [1,2,3,4].forEach((a)=>{
-        console.log(a);
-    });
-
-    // 일반 리스너에서는 this==e.currentTarget / arrow function에서는 밖의this==this
-    // document.getElementById('button').addEventListener('click',function(e){
-    //         console.log(this) // button
-    // })
-    document.getElementById('button').addEventListener('click',(e)=>{
-        console.log(this) // window
-    })
-
-var object ={
-        // 함수:function(){
-        //     console.log('object',this); //함수 오브젝트가 나옴
-        // }
-        함수:()=>{
-            console.log('object',this); //window
-        }
+//     [1,2,3,4].forEach((a)=>{
+//         console.log(a);
+//     });
+//
+//     // 일반 리스너에서는 this==e.currentTarget / arrow function에서는 밖의this==this
+//     // document.getElementById('button').addEventListener('click',function(e){
+//     //         console.log(this) // button
+//     // })
+//     document.getElementById('button').addEventListener('click',(e)=>{
+//         console.log(this) // window
+//     })
+//
+// var object ={
+//         // 함수:function(){
+//         //     console.log('object',this); //함수 오브젝트가 나옴
+//         // }
+//         함수:()=>{
+//             console.log('object',this); //window
+//         }
+//     }
+// object.함수()
+// 1. 연습문제
+var 사람 = {
+    name: '손흥민',
+    sayHi:(a)=>{
+        console.log(a+' 나는 ' +사람.name);
     }
-object.함수()
+}
+
+사람.sayHi('안녕');
+// 2.연습문제
+var 자료 = {
+    data : [1,2,3,4,5]
+}
+function 새자료(){
+    this.data=자료.data;
+    this.전부더하기= ()=>{
+        var sum=0;
+        this.data.forEach((a)=>{
+            // console.log(a)
+          sum=sum+a;
+          console.log(sum)
+        });
+    }
+}
+var 자료 = new 새자료();
+console.log(자료)
+자료.전부더하기();
+
+// 3. 연습문제
+document.getElementById('button').addEventListener('click',function() {
+        setTimeout(()=>{console.log(this.innerHTML)},1000);
+    }
+);
+
+
 </script>
